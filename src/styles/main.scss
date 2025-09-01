@@ -3,6 +3,10 @@
 $gap-size: 1px;
 $cell-size: 100px;
 $hovered-cell-color: #ffbfcb;
+$hover-shift: 20px;
+$border-size: 1px;
+$padding-x: 10px;
+$padding-y: 10px;
 
 /* #endregion */
 
@@ -16,8 +20,8 @@ body {
   align-items: center;
   width: $cell-size * 7 + 30px;
   height: $cell-size * 5;
-  padding-top: 134px;
-  padding-left: 137px;
+  padding-top: $padding-y * 13.4;
+  padding-left: $padding-x * 13.7;
 }
 
 .calendar {
@@ -27,7 +31,7 @@ body {
   gap: $gap-size $gap-size;
   flex-wrap: wrap;
   width: $cell-size * 7 + $gap-size * 7;
-  padding-left: 20px;
+  padding-left: $padding-x * 2;
 
   $start-days: (mon, 1), (tue, 2), (wed, 3), (thu, 4), (fri, 5), (sat, 6),
     (sun, 7);
@@ -62,9 +66,9 @@ body {
         height: $cell-size;
         font-family: Arial, Helvetica, sans-serif;
         font-size: 30px;
-        padding-left: 1px;
+        padding-left: $border-size;
         background-color: #eee;
-        border: 1px solid #000;
+        border: $border-size solid #000;
       }
     }
   }
@@ -72,7 +76,7 @@ body {
   &__day:hover::before {
     cursor: pointer;
     background-color: $hovered-cell-color;
-    transform: translate(0, -20px);
+    transform: translate(0, $hover-shift);
     transition-duration: 0.5s;
   }
 }
